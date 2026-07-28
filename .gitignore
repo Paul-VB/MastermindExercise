@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Mastermind/.vs/Mastermind
+/Mastermind/Mastermind/bin/Debug/net9.0
+/Mastermind/Mastermind/obj
