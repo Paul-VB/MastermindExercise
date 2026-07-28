@@ -13,6 +13,7 @@
                 Console.WriteLine($"you have {chancesRemaining} more chances.");
                 var currentGuess = GetUserInput();
                 var guessResult = guessChecker.CheckGuess(currentGuess, answer);
+                Console.WriteLine($"the result of your guess is: {guessResult}");
             }
         }
 
