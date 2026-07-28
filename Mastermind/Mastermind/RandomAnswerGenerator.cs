@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Mastermind
 {
     public class RandomAnswerGenerator
     {
-        private const int answerLength = 4;
-        private readonly char[] possibleChars = ['1', '2', '3', '4', '5', '6'];
+        public int AnswerLength { get; private set; } = 4;
+        public List<char> PossibleChars { get; private set; } = ['1', '2', '3', '4', '5', '6'];
+
         public string Generate()
         {
             var random = new Random();
 
             var newAnswer = new StringBuilder();
-            for (int i = 0; i < answerLength; i++)
+            for (int i = 0; i < AnswerLength; i++)
             {
-                var newAnswerChar = possibleChars[random.Next(0, possibleChars.Length)];
+                var newAnswerChar = PossibleChars[random.Next(0, PossibleChars.Count)];
                 newAnswer.Append(newAnswerChar);
             }
 
