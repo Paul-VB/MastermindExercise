@@ -11,16 +11,20 @@ namespace MastermindTests
             checker = new GuessChecker();
         }
 
-        [Fact]
-        public void TestMethod1()
+        [Theory]
+        [InlineData("1234", "4233", "++-")]
+        [InlineData("1234" , "1234", "++++")]
+        [InlineData("1234" , "4321", "----")]
+        [InlineData("1234" , "4231", "++--")]
+        [InlineData("1234" , "5555", "")]
+        [InlineData("1234" , "5255", "+")]
+        [InlineData("1234" , "2555", "-")]
+
+        public void TestMethod(string actualAnswer, string userGuess, string expectedResult)
         {
-            // Arrange
-            string userGuess = "1234";
-            string actualAnswer = "1234";
-            // Act
             string result = checker.CheckGuess(userGuess, actualAnswer);
             // Assert
-            Assert.Equal("++++", result);
+            Assert.Equal(expectedResult, result);
         }
     }
 }

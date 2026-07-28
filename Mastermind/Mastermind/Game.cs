@@ -2,7 +2,7 @@
 {
     public class Game(RandomAnswerGenerator randomAnswerGenerator, GuessChecker guessChecker)
     {
-        private const int chancesRemaining = 10;
+        private int chancesRemaining = 10;
         public void Run()
         {
             PrintIntroText();
@@ -14,7 +14,18 @@
                 var currentGuess = GetUserInput();
                 var guessResult = guessChecker.CheckGuess(currentGuess, answer);
                 Console.WriteLine($"the result of your guess is: {guessResult}");
+
+                //check if they got it right
+                if (currentGuess == answer)
+                {
+                    Console.WriteLine("Congratulations! You guessed the correct answer!");
+                    return;
+                }
+
+                chancesRemaining--;
             }
+
+            Console.WriteLine($"Sorry, you have run out of chances. The correct answer was: {answer}");
         }
 
         private string GetUserInput()
